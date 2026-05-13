@@ -1,0 +1,25 @@
+[project]
+name = "idw-rainfall-rasterization"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Jan Eike Suchard", email = "60288203+dr4hcu5-jan@users.noreply.github.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "geopandas>=1.1.3",
+    "joblib>=1.5.3",
+    "netcdf4>=1.7.4",
+    "numpy>=2.4.4",
+    "pandas>=3.0.3",
+    "scipy>=1.17.1",
+    "tqdm>=4.67.3",
+]
+
+[project.scripts]
+idw-rainfall-rasterization = "idw_rainfall_rasterization:main"
+
+[build-system]
+requires = ["uv_build>=0.10.7,<0.11.0"]
+build-backend = "uv_build"
