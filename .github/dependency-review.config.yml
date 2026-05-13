@@ -1,0 +1,4 @@
+comment-summary-in-pr: always
+fail-on-severity: moderate
+retry-on-snapshot-warnings: true
+show-patched-versions: true
