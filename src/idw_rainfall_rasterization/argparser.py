@@ -50,26 +50,18 @@ def parse_cli_arguments() -> Namespace:
         help="A Shapefile defining the outer borders of the generated raster images and used stations",
     )
 
-    args = __base_parser.parse_args()
-    if args.source == "api":
-        return args
-
-    # as the file source needs some more arguments to be usable we now extend the
-    # parser and add more
-    return parse_file_loader_arguments()
-
-
-def parse_file_loader_arguments() -> Namespace:
-    """
-    Extend the :data:`__base_parser` to also read in the arguments for the station
-    list and the rainfall data.
-
-    :return: The parsed command line arguments for handling the file source type
-    :rtype: Namespace
-    """
+    __base_parser.add_argument(
+        "station_list",
+        help="A File containing all DWD stations. Required if 'source' is 'file'",
+        nargs="?"
+    )
 
     __base_parser.add_argument(
-        "dwd_station_list",
-        help="The official station list of the dwd. This is used to determine which stations are inside of the supplied boundary. Optional if the source is set to 'api'",
+        "rainfall_data_dir",
+        help="Directory that contains the rainfall data. The files need to be named after the station id's.",
+        nargs="?"
     )
+
     return __base_parser.parse_args()
+    
+
