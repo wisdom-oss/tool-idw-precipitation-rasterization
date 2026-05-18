@@ -28,7 +28,7 @@ def parse_cli_arguments() -> Namespace:
         "--output",
         help="The path to the output folder which will contain the image series, and optionally the cross-validation results and the NetCDF file for the rasterization",
         default="./output",
-        metavar="path"
+        metavar="path",
     )
 
     __base_parser.add_argument(
@@ -53,15 +53,13 @@ def parse_cli_arguments() -> Namespace:
     __base_parser.add_argument(
         "station_list",
         help="A File containing all DWD stations. Required if 'source' is 'file'",
-        nargs="?"
+        nargs="?",
     )
 
     __base_parser.add_argument(
         "rainfall_data_dir",
         help="Directory that contains the rainfall data. The files need to be named after the station id's.",
-        nargs="?"
+        nargs="?",
     )
 
     return __base_parser.parse_args()
-    
-
